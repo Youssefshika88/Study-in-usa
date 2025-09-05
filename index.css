@@ -1,38 +1,123 @@
-/* ستايل النافذة المنبثقة (Modal) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ستايل النافذة المنبثقة (Modal) */@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Cairo',sans-serif;
+  background:#0d0d0d;
+  color:#f1f1f1;
+  overflow-x:hidden;
 }
 
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  animation: fadeIn 0.5s ease;
+/* الهيدر */
+.hero{
+  position:relative;
+  height:100vh;
+  background:linear-gradient(135deg,#0d0d0d,#1a1a1a,#2e0854);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#fff;
+}
+.hero .overlay{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.5);
+}
+.hero-content{position:relative;z-index:1;animation:fadeInDown 1.2s ease}
+.hero h1{font-size:2.8rem;margin-bottom:16px;color:#FFD700}
+.hero p{font-size:1.2rem;margin-bottom:22px;color:#ddd}
+.cta-btn{
+  padding:14px 28px;border:none;border-radius:12px;
+  background:linear-gradient(135deg,#FFD700,#f8c202);
+  color:#1a1a1a;font-weight:bold;
+  cursor:pointer;transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+.cta-btn:hover{
+  background:linear-gradient(135deg,#f8c202,#ffe98a);
+  transform:scale(1.05);
 }
 
-.modal-content h2 {margin-bottom: 15px; color: #023e8a;}
-label {display:block;margin:8px 0 4px;}
-input, textarea {
-  width: 100%; padding: 10px; margin-bottom: 10px;
-  border: 1px solid #ccc; border-radius: 6px;
+/* الاقسام */
+main{padding:60px 20px;max-width:1000px;margin:auto}
+h2{color:#FFD700;margin-bottom:20px;text-align:center}
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px
 }
-.submit-btn {
-  width: 100%; padding: 12px;
-  background: #118ab2; color: #fff;
-  border: none; border-radius: 8px;
-  cursor: pointer; font-weight: bold;
+.card{
+  background:#1a1a1a;
+  padding:20px;text-align:center;border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.5);
+  transition:transform 0.3s,box-shadow 0.3s;
+  border:1px solid rgba(255,215,0,0.3);
 }
-.submit-btn:hover {background: #0a6d91;}
-.close {
-  float: left; font-size: 24px; cursor: pointer; color: #333;
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 28px rgba(255,215,0,0.3);
 }
+
+.about p{
+  background:#1a1a1a;
+  padding:22px;border-radius:14px;
+  box-shadow:0 5px 12px rgba(0,0,0,0.3);
+  text-align:center;line-height:1.8;
+  border:1px solid rgba(255,215,0,0.2);
+}
+
+/* الفوتر */
+footer{
+  text-align:center;
+  padding:22px;
+  background:#111;
+  color:#aaa;
+  margin-top:50px;
+  border-top:1px solid rgba(255,215,0,0.2);
+}
+
+/* المودال */
+.modal{
+  display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.8);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-content{
+  background:rgba(20,20,20,0.95);
+  backdrop-filter:blur(10px);
+  padding:25px;border-radius:14px;max-width:500px;width:100%;
+  max-height:90vh;overflow-y:auto;
+  animation:fadeInUp 0.6s ease;
+  box-shadow:0 10px 25px rgba(255,215,0,0.2);
+  border:1px solid rgba(255,215,0,0.3);
+}
+.modal-content h2{text-align:center;margin-bottom:18px;color:#FFD700}
+label{display:block;margin:10px 0 5px;color:#fff}
+input,textarea{
+  width:100%;padding:12px;margin-bottom:12px;
+  border:1px solid #444;border-radius:8px;font-size:14px;
+  background:#111;color:#eee;
+}
+input:focus,textarea:focus{
+  outline:none;border:1px solid #FFD700;
+  box-shadow:0 0 6px rgba(255,215,0,0.5);
+}
+.submit-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,#FFD700,#f8c202);
+  color:#111;font-weight:bold;
+  border:none;border-radius:10px;cursor:pointer;
+  transition:0.3s;
+}
+.submit-btn:hover{
+  background:linear-gradient(135deg,#f8c202,#ffe98a);
+}
+.close{float:left;font-size:28px;cursor:pointer;color:#FFD700}
+
+/* انيميشن */
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
